@@ -1,0 +1,179 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: rgb(0, 76, 255);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ======== SECCIÓN PRINCIPAL ======== */
+.main-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* ======== TARJETA (CARD) ======== */
+.form-card {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 40px 35px;
+  width: 100%;
+  max-width: 500px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+  width: 100%;
+}
+
+/* ======== TÍTULOS ======== */
+.card-title, h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+p, label {
+  color: #555;
+}
+
+/* ======== FORMULARIOS ======== */
+form {
+  text-align: left;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.form-control,
+.form-select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #4a60ff;
+  box-shadow: 0 0 0 3px rgba(74, 96, 255, 0.2);
+  outline: none;
+}
+
+/* ======== BOTONES ======== */
+.btn {
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn-primary {
+  background-color: #4a60ff;
+  color: white;
+  width: 100%;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background-color: #3b4ce0;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: #e5e7eb;
+  color: #333;
+  width: 100%;
+  font-weight: 500;
+}
+
+.btn-secondary:hover {
+  background-color: #d4d6db;
+}
+
+/* Botones en línea (por ejemplo limpiar/guardar) */
+.w-45 {
+  width: 45%;
+}
+
+/* ======== IMAGEN SVG Y LOADER ======== */
+.svg-container {
+  max-width: 600px;
+  margin: 0 auto 25px;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  margin-top: 15px;
+}
+
+/* ======== ENLACES ======== */
+a {
+  color: #4a60ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 576px) {
+  .form-card {
+    padding: 25px 20px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .w-45 {
+    width: 48%;
+  }
+}
+
+
+
+
+
+
+
+
+
+#btnShowPass {
+  cursor: pointer !important;
+  position: absolute ;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#btnShowPass:hover {
+  color: #3249fa !important;
+}
