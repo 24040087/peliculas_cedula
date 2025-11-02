@@ -1,5 +1,5 @@
 <?php 
-    function headcontent($title);{
+    function headcontent($title) {
     echo '<mwt CHARSET="uft-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0>
         <title>' . $title .' | peliculas</title>
@@ -15,4 +15,13 @@
 
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>';
     }
+
+    function footerScripts() {
+        echo '<!-- MDB -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.2.0/mdb.umd.min.js"></script>
+        <!-- SweetAlert2 -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script src="static/js/app.min.js"></script>';}
+
 ?>

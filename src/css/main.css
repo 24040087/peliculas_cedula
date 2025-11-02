@@ -1,0 +1,32 @@
+*,*::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+}
+
+:root {
+    --radius: 10px;
+    --radius-btn: 50%;
+    --transmition: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--mdb-font-roboto);
+    color: var(--mbd-body-color);
+    background-color: var(--mbd-body-bg);
+    min-height: 100dvh /* dynamic viewport height */;
+    background: var(--mbd-primary);
+}
+
+main {
+    min-height: 100dvh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
