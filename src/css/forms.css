@@ -1,0 +1,13 @@
+#btnShowPass {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    right: 8px;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: var(--detail-bg);
+    }
+}

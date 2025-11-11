@@ -6,6 +6,16 @@
         $userPOST = $input['userlog'] ?? '';
         $passPOST = $input['passlog'] ?? '';
 
+        if (empty($userPOST) || empty($passPOST)) {
+            http_response_code(400);
+            echo json_encode([
+                "success" => false,
+                "status" => 400,
+                "message" => "Usuario y contraseña son requeridos"
+            ]);
+            exit;
+        }
+
         $url = "http://localhost:8220/login";
         $data = array("username" => $userPOST, "password" => $passPOST);
         $jsonData = json_encode($data);
@@ -36,22 +46,32 @@
 
         if ($httpcode === 200 && isset($json['access_token'])) {
             $token = $json['access_token'];
-            setcookie("token", $token, time() + 300, "/", "", true, true);
+            $tokenParts = explode('.', $token);
+            $payload = json_decode(base64_decode($tokenParts[1]), true);
 
-            $_SESSION['username'] = $userPOST;
+            $expires = $payload['exp'];
+            setcookie("token", $token, time() + $expires, "/", "", true, true);
+
+            // Guardar datos en la sesión
+            $_SESSION['username'] = strtolower($payload['sub'] ?? 'Sin Usuario');
+            $_SESSION['fullname'] = strtolower($payload['fullname'] ?? 'Sin Nombre');
+            $_SESSION['role'] = strtolower($payload['role'] ?? 'Sin Rol');
         }
 
         // Enviar al frontend
         header('Content-Type: application/json');
         echo json_encode([
             "success" => true,
-            "status" => $httpcode
+            "status" => $httpcode,
+            "fullname" => $payload['fullname'],
+            "json" => $json
+            // "response" => $json
         ]);
     } else {
         echo json_encode([
             "success" => false,
             "status" => $httpcode,
-            "message" => $json['message'] ?? "Error desconocido"
+            "message" => $json['message'] ?? "Error desconocido",
         ]);
     }
 ?>
