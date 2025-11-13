@@ -27,15 +27,15 @@ $(document).ready(function () {
             success: function (response) {
                 $(form)[0].reset();
 
-                // toast({
-                //     icon: "success",
-                //     title: `Se inicio sesion correctamente <br> Bienvenido ${response.fullname}`,
-                //     time: 2000,
-                //     position: "top",
-                //     onClose: function () {
-                //         window.location.href = "dashboard.php";
-                //     },
-                // });
+                toast({
+                    icon: "success",
+                    title: `Se inicio sesion correctamente <br> Bienvenido ${response.fullname}`,
+                    time: 2000,
+                    position: "top",
+                    onClose: function () {
+                        window.location.href = "dashboard.php";
+                    },
+                });
             },
             error: function (xhr, status, error, response) {
                 const errorData = xhr.responseJSON.json || {};
